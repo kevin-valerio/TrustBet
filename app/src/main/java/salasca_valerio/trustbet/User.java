@@ -24,7 +24,7 @@ public class User {
         this.familyName = familyName;
         this.givenName = givenName;
         this.photoUri = photoUri;
-        /*00test*/
+        /*gafdgdfgdf*/
     }
 
     public String getUsername() {
