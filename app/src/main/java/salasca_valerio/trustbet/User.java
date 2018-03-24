@@ -15,7 +15,7 @@ public class User {
     private Uri photoUri;
     private Integer revenus;
 
-    public User(String username, String email, String  id, String idToken, Account account, String familyName, String givenName, Uri photoUri) {
+    User(String username, String email, String id, String idToken, Account account, String familyName, String givenName, Uri photoUri) {
         this.username = username;
         this.email = email;
         this.id = id;
@@ -24,6 +24,7 @@ public class User {
         this.familyName = familyName;
         this.givenName = givenName;
         this.photoUri = photoUri;
+        /*00test*/
     }
 
     public String getUsername() {
