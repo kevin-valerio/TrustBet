@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    android:layout_height="100dp" android:layout_width="100dp">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Gestion des paris">
+            <menu>
+                <item
+                    android:id="@+id/nav_voir_paris"
+                    android:icon="@drawable/ic_pan_tool_black_24px"
+                    android:title="Voir ses paris" />
+                <item
+                    android:id="@+id/nav_creer"
+                    android:icon="@drawable/ic_create_black_24px"
+                    android:title="Créer un pari" />
+                <item
+                    android:id="@+id/nav_rejoindre"
+                    android:icon="@drawable/ic_add_black_24dp"
+                    android:title="Rejoindre un pari" />
+            </menu>
+        </item>
+
+
+    </group>
+
+    <item android:title="Fonds et portefeuille">
+        <menu>
+            <item
+                android:id="@+id/nav_portefeuille"
+                android:icon="@drawable/ic_attach_money_black_24px"
+                android:title="Voir son portefeuille" />
+
+        </menu>
+    </item>
+
+</menu>

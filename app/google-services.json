@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "453599460541",
+    "firebase_url": "https://trustbet-f7b52.firebaseio.com",
+    "project_id": "trustbet-f7b52",
+    "storage_bucket": "trustbet-f7b52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453599460541:android:17098f543e66ffc9",
+        "android_client_info": {
+          "package_name": "salasca_valerio.trustbet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453599460541-r6ngj9d4kcd89dkc0dl567sj2kci4j56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "salasca_valerio.trustbet",
+            "certificate_hash": "b479779d708bbfe7c150734651234b45b98e562a"
+          }
+        },
+        {
+          "client_id": "453599460541-bur4t930ao5g7pqt87odjsi7c2qo9dhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqPXItZvhHr5pkhazPZedIhfkVfzTnTFE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453599460541-bur4t930ao5g7pqt87odjsi7c2qo9dhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
