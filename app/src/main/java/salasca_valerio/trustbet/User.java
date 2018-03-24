@@ -13,6 +13,7 @@ public class User {
     private String familyName;
     private String givenName;
     private Uri photoUri;
+    private Integer revenus;
 
     public User(String username, String email, String  id, String idToken, Account account, String familyName, String givenName, Uri photoUri) {
         this.username = username;
