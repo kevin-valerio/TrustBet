@@ -9,16 +9,22 @@ Min Sdk : API 19: Android 4.4 (KitKat)
 Selon https://developer.android.com/about/dashboards/index.html, notre appication est disponible sur 94.3% des devices
 
 --------
--GeoLoc
+-Todo : GeoLocation
 
--Maps
+-Todo : Maps
 
--Share
+-Todo : Share
 
--Notification
+-Todo : Notification
 
--Connection via compte Google [intégré]
+-Connection via compte Google
+  -[intégré]
 
--Sonar [intégré] minimum C
+-Sonar [intégré] 
+  -{min. C} (https://sonarcloud.io/projects)
 
--Crashlytics [intégré] (https://fabric.io/iut-aix/android/apps/)
+-Crashlytics [intégré] 
+  -(https://fabric.io/iut-aix/android/apps/)
+
+
+---------
