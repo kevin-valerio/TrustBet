@@ -13,7 +13,7 @@ public class User {
     private String familyName;
     private String givenName;
     private Uri photoUri;
-    private Integer revenus;
+    private String revenus;
 
     User(String username, String email, String id, String idToken, Account account, String familyName, String givenName, Uri photoUri) {
         this.username = username;
@@ -24,7 +24,24 @@ public class User {
         this.familyName = familyName;
         this.givenName = givenName;
         this.photoUri = photoUri;
-        /*gafdgdfgdf*/
+        this.revenus = getRevenus();
+
+
+
+    }
+
+    public String getRevenus() {
+        /*
+
+        BDDD Selectg
+         */
+        String montant = "3.3";
+        this.revenus = montant;
+        return montant.toString() + " €";
+    }
+
+    public void setRevenus(String revenus) {
+        this.revenus = revenus;
     }
 
     public String getUsername() {

@@ -15,26 +15,26 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true">
 
+
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="100dp"
+            android:id="@+id/pleaseAuth"
+            android:layout_width="230dp"
             android:layout_height="100dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="48dp"
-            android:layout_toEndOf="@+id/sign_in_button"
+            android:layout_centerHorizontal="true"
             android:text="Bonjour, veuillez vous authentifier"
             android:textAppearance="@style/TextAppearance.AppCompat" />
-
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="160dp"
             android:layout_height="60dp"
-            android:layout_alignBottom="@+id/textView"
-            android:layout_marginBottom="-29dp"
-            android:layout_marginStart="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="35dp"
             android:baselineAligned="false"
-            tools:ignore="@drawable/common_google_signin_btn_icon_light_normal" />
+            tools:ignore="@drawable/common_google_signin_btn_icon_light_normal">
+
+        </com.google.android.gms.common.SignInButton>
 
 
     </RelativeLayout>
