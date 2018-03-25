@@ -22,6 +22,7 @@ Selon https://developer.android.com/about/dashboards/index.html, notre appicatio
 
 -Sonar [intégré] 
   -{min. C} (https://sonarcloud.io/projects)
+  - gradlew.bat sonarqube -Dsonar.organization=trustbet -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=a8140356cff13770b6802f47a4602cc1aa0a6cdc --stacktrace --info
 
 -Crashlytics [intégré] 
   -(https://fabric.io/iut-aix/android/apps/)
