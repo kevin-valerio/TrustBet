@@ -4,8 +4,11 @@ import android.util.Log;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-public class Database {
+import java.sql.Statement;
+
+public class Database    {
 
     private static final String TAG = "JDBC_LOG";
     private static String url = "jdbc:mysql://sql11.freesqldatabase.com:3306/";
@@ -18,11 +21,16 @@ public class Database {
 
     /*
         @Usage :
-        private Connection con = ConnectionManager.getConnection();
+        private Connection con = Database.getConnection();
         private Statement stmt = con.createStatement();
         private ResultSet rs = stmt.executeQuery(sql);
-
      */
+
+
+    public Database() {
+        getConnection();
+    }
+
     public static Connection getConnection() {
         try {
             Class.forName(driverName);

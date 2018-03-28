@@ -11,7 +11,7 @@
         android:layout_width="103dp"
         android:layout_height="41dp"
         android:ems="10"
-        android:inputType="textMultiLine|textPersonName"
+        android:inputType="textMultiLine"
         android:labelFor="@+id/input_bet_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.209"
@@ -79,37 +79,39 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
+        app:layout_constraintVertical_bias="0.301" />
 
     <EditText
+        android:id="@+id/input_bet_description"
         android:layout_width="288dp"
         android:layout_height="52dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:id="@+id/input_bet_description"
         android:lines="5"
         android:maxLines="5"
         android:text="@string/entrer_une_description_pour_le_pari"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.614"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.464"
-        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintVertical_bias="0.381"
         tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/picDate"
-        android:layout_width="201dp"
-        android:layout_height="80dp"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="172dp"
+        android:layout_height="35dp"
         android:onClick="datePicker"
         android:text="@string/choisir_une_date"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665" />
+        tools:text="Date d'écheance" />
     <TextView
         android:layout_below="@+id/picDate"
         android:layout_width="match_parent"
@@ -118,16 +120,26 @@
         android:textSize="18dp"/>
 
     <Button
+        android:id="@+id/goAccueil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour à l'accueil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="306dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
         android:id="@+id/button_create_bet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/creer_mon_pari"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.237"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="306dp"
+        tools:ignore="MissingConstraints" />
 
 
 </android.support.constraint.ConstraintLayout>

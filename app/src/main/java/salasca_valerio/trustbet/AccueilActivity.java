@@ -189,9 +189,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     @SuppressLint("SetTextI18n")
     private void initAllHeaderDetails() {
-
         TextView mRevenusFooter = findViewById(R.id.revenusFooter);
-//       Log.d(TAG_NAME, mainUser.getRevenus());
+      //  mRevenusFooter.setText(mainUser.getRevenus());
     }
 
     @Override

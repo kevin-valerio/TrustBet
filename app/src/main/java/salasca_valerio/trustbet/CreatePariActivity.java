@@ -2,9 +2,10 @@ package salasca_valerio.trustbet;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -12,99 +13,97 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.support.v4.app.DialogFragment;
 
+import java.sql.Connection;
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 
-public class  CreatePariActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class CreatePariActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
 
+   public static Date dateEcheance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_pari);
         createBetButtonAction();
+        createGoBackButton();
+    }
+
+    private void createGoBackButton() {
+        Button goBack = findViewById(R.id.goAccueil);
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(CreatePariActivity.this, AccueilActivity.class);
+                CreatePariActivity.this.startActivity(myIntent);
+            }
+        });
     }
 
 
-        /**
-         * This callback method, call DatePickerFragment class,
-         * DatePickerFragment class returns calendar view.
-         * @param view
-         */
-        public void datePicker(View view){
+    public void datePicker(View view) {
 
-            DatePickerFragment fragment = new DatePickerFragment();
-            fragment.show(getSupportFragmentManager(), "datePicker");
-        }
+        DatePickerFragment fragment = new DatePickerFragment();
+        fragment.show(getSupportFragmentManager(), "datePicker");
+    }
 
-        /**
-         * To set date on TextView
-         * @param calendar
-         */
-        private void setDate(final Calendar calendar) {
-            final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+    private void setDate(final Calendar calendar) {
+        final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+        ((TextView) findViewById(R.id.showDate)).setText(dateFormat.format(calendar.getTime()));
+    }
 
-            ((TextView) findViewById(R.id   .showDate))
-                    .setText(dateFormat.format(calendar.getTime()));
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        Calendar cal = new GregorianCalendar(year, month, day);
+        setDate(cal);
+    }
 
-        }
+    public static class DatePickerFragment extends DialogFragment {
 
-        /**
-         * To receive a callback when the user sets the date.
-         * @param view
-         * @param year
-         * @param month
-         * @param day
-         */
+        @NonNull
         @Override
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            Calendar cal = new GregorianCalendar(year, month, day);
-            setDate(cal);
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+
+            CreatePariActivity.dateEcheance = new Date(year, month, day);
+            return new DatePickerDialog(getActivity(),
+                    (DatePickerDialog.OnDateSetListener)
+                            getActivity(), year, month, day);
         }
 
-        /**
-         * Create a DatePickerFragment class that extends DialogFragment.
-         * Define the onCreateDialog() method to return an instance of DatePickerDialog
-         */
-        public static class DatePickerFragment extends DialogFragment {
-
-            @Override
-            public Dialog onCreateDialog(Bundle savedInstanceState) {
-                final Calendar c = Calendar.getInstance();
-                int year = c.get(Calendar.YEAR);
-                int month = c.get(Calendar.MONTH);
-                int day = c.get(Calendar.DAY_OF_MONTH);
-
-
-                return new DatePickerDialog(getActivity(),
-                        (DatePickerDialog.OnDateSetListener)
-                                getActivity(), year, month, day);
-            }
-
-        }
+    }
 
 
     private void createBetButtonAction() { // freesqldatabase, mdp = trustbet13300
 
-        Button createBetButton = (Button) findViewById(R.id.button_create_bet);
-
-
+        Button createBetButton = findViewById(R.id.button_create_bet);
         createBetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                EditText inputTitre = (EditText) findViewById(R.id.input_bet_title);
+                EditText inputTitre = findViewById(R.id.input_bet_title);
+                EditText inputAmount = findViewById(R.id.input_bet_amount);
+                EditText inputDescription = findViewById(R.id.input_bet_description);
 
-                Log.d("debug", "test :" + inputTitre.getText().toString());
+                String montant = inputAmount.getText().toString();
+                String titre = inputTitre.getText().toString();
+                String description = inputDescription.getText().toString();
+                String myMail = AccueilActivity.mainUser.getEmail();
 
-                float montant;
-                String description;
+                Pari pariCree = new Pari(titre, description, montant, dateEcheance, myMail);
+                pariCree.uploadToDatabase();
+
+                Connection con = Database.getConnection();
 
 
-                /* remplit la bd avec les infos du pari */
 
 
 
@@ -112,28 +111,6 @@ public class  CreatePariActivity extends AppCompatActivity implements DatePicker
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
