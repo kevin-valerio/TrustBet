@@ -29,3 +29,9 @@ Selon https://developer.android.com/about/dashboards/index.html, notre appicatio
 
 
 ---------
+
+Host: sql11.freesqldatabase.com
+Database name: sql11229330
+Database user: sql11229330
+Database password: RJsHnqlb7n
+Port number: 3306
