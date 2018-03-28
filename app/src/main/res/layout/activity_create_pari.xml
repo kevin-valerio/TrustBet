@@ -7,11 +7,12 @@
     tools:context="salasca_valerio.trustbet.CreatePariActivity">
 
     <EditText
-        android:labelFor="@+id/input_bet_title"
+        android:id="@+id/input_bet_title"
         android:layout_width="103dp"
-        android:layout_height="36dp"
+        android:layout_height="41dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine|textPersonName"
+        android:labelFor="@+id/input_bet_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -32,9 +33,9 @@
         app:layout_constraintVertical_bias="0.113" />
 
     <EditText
-        android:labelFor="@+id/input_bet_amount"
+        android:id="@+id/input_bet_amount"
         android:layout_width="110dp"
-        android:layout_height="36dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +46,7 @@
         app:layout_constraintVertical_bias="0.157" />
 
     <TextView
-        android:labelFor="@+id/label_amount"
+        android:id="@+id/label_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/montant"
@@ -57,7 +58,7 @@
         app:layout_constraintVertical_bias="0.113" />
 
     <TextView
-        android:labelFor="@+id/label_euro"
+        android:id="@+id/label_euro"
         android:layout_width="17dp"
         android:layout_height="19dp"
         android:text="@string/euro"
@@ -69,7 +70,7 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-        android:labelFor="@+id/label_bet_description"
+        android:id="@+id/label_bet_description"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:text="@string/description"
@@ -85,7 +86,7 @@
         android:layout_height="52dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:labelFor="@+id/input_bet_description"
+        android:id="@+id/input_bet_description"
         android:lines="5"
         android:maxLines="5"
         android:text="@string/entrer_une_description_pour_le_pari"
@@ -95,7 +96,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.464"
         app:layout_constraintHorizontal_bias="0.614"
-        />
+        tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/picDate"

@@ -3624,8 +3624,8 @@ public final class R {
     public static final int beginning=0x7f080023;
     public static final int blocking=0x7f080024;
     public static final int bottom=0x7f080025;
-    public static final int button3=0x7f080026;
-    public static final int buttonPanel=0x7f080027;
+    public static final int buttonPanel=0x7f080026;
+    public static final int button_create_bet=0x7f080027;
     public static final int cancel_action=0x7f080028;
     public static final int center=0x7f080029;
     public static final int center_horizontal=0x7f08002a;

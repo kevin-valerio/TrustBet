@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -12,12 +13,9 @@ import android.widget.TextView;
 import android.support.v4.app.DialogFragment;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 
-import static android.app.PendingIntent.getActivity;
 
 public class  CreatePariActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -27,6 +25,7 @@ public class  CreatePariActivity extends AppCompatActivity implements DatePicker
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_pari);
+        createBetButtonAction();
     }
 
 
@@ -88,12 +87,21 @@ public class  CreatePariActivity extends AppCompatActivity implements DatePicker
         }
 
 
-    private void createBetButtonAction() {
+    private void createBetButtonAction() { // freesqldatabase, mdp = trustbet13300
 
-        Button createBetButton = findViewById(R.id.button_create_bet);
+        Button createBetButton = (Button) findViewById(R.id.button_create_bet);
+
+
         createBetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                EditText inputTitre = (EditText) findViewById(R.id.input_bet_title);
+
+                Log.d("debug", "test :" + inputTitre.getText().toString());
+
+                float montant;
+                String description;
 
 
                 /* remplit la bd avec les infos du pari */

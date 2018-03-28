@@ -772,7 +772,7 @@ public final class R {
         public static final int auto = 0x7f080021;
         public static final int blocking = 0x7f080024;
         public static final int bottom = 0x7f080025;
-        public static final int buttonPanel = 0x7f080027;
+        public static final int buttonPanel = 0x7f080026;
         public static final int cancel_action = 0x7f080028;
         public static final int center = 0x7f080029;
         public static final int checkbox = 0x7f08002d;
