@@ -142,7 +142,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     private void initAllHeaderDetails() {
 
        TextView mRevenusFooter = (TextView) findViewById(R.id.revenusFooter);
-       Log.d(mainUser.getRevenus(), mainUser.getRevenus());
+//         Log.d(mainUser.getRevenus(), mainUser.getRevenus());
     }
 
 
