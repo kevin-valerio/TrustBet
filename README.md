@@ -9,13 +9,13 @@ Min Sdk : API 19: Android 4.4 (KitKat)
 Selon https://developer.android.com/about/dashboards/index.html, notre appication est disponible sur 94.3% des devices
 
 --------
--Todo : GeoLocation
+-Todo : GeoLocation [A FAIRE]
 
--Todo : Maps
+-Todo : Maps [A FAIRE]
 
--Todo : Share
+-Todo : Share [A FAIRE]
 
--Todo : Notification
+-Todo : Notification [intégré]
 
 -Connection via compte Google
   -[intégré]
