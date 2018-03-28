@@ -6,4 +6,11 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="entrer_une_description_pour_le_pari">Entrer une description pour le pari</string>
+    <string name="titre_du_pari">Titre du pari</string>
+    <string name="montant">Montant</string>
+    <string name="description">Description</string>
+    <string name="euro">€</string>
+    <string name="creer_mon_pari">Créer mon pari</string>
+    <string name="choisir_une_date">choisir la date du pari</string>
 </resources>
