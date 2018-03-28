@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/s16008030/StudioProjects/TrustBet/C:\\Users\\Utilisateur\\Desktop\\TrustBet\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "/home/s16008030/StudioProjects/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/s16008030/StudioProjects/TrustBet/C:\\Users\\Utilisateur\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\5d882657c970c962335cc4902d9604e8\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "/home/s16008030/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/c678c8a2d4a5251b9ab33bc427fea053/res/values-night-v8/values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -16,10 +16,25 @@
             ]
         },
         {
-            "outputFile": "/home/s16008030/StudioProjects/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/home/v16007689/Téléchargements/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/s16008030/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/c678c8a2d4a5251b9ab33bc427fea053/res/values-night-v8/values-night-v8.xml",
+                    "source": "/home/v16007689/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/81d200c420430fd21624b5e932c345e0/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/s16008030/StudioProjects/TrustBet/C:\\Users\\Utilisateur\\Desktop\\TrustBet\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "/home/s16008030/StudioProjects/TrustBet/C:\\Users\\Utilisateur\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\5d882657c970c962335cc4902d9604e8\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

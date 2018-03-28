@@ -3,15 +3,15 @@ buildscript {
     repositories {
         maven {
             url 'https://maven.fabric.io/public'
-         }
+        }
         maven {
             url "https://plugins.gradle.org/m2/"
         }
     }
 
     dependencies {
-         classpath 'io.fabric.tools:gradle:1.+'
-         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
+        classpath 'io.fabric.tools:gradle:1.+'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
 
 
     }
@@ -30,7 +30,7 @@ sonarqube {
         property "sonar.binaries", "build/intermediates/classes/debug"
         property "sonar.libraries", libraries
         property "sonar.login", "kevin-valerio@github"
-         // Defines where the xml files are
+        // Defines where the xml files are
         property "sonar.java.binaries", "build/intermediates/classes/debug"
         property "sonar.java.libraries", libraries
 
@@ -70,6 +70,7 @@ android {
 }
 
 dependencies {
+    compile 'com.github.bumptech.glide:glide:3.8.0'
 
     compile 'com.google.firebase:firebase-core:11.8.0'
     compile 'com.google.android.gms:play-services-auth:11.8.0'
