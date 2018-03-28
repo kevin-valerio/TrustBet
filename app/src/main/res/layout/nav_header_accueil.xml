@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
@@ -20,7 +21,8 @@
             android:id="@+id/pleaseAuth"
             android:layout_width="230dp"
             android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@+id/sign_in_button"
+            android:layout_centerVertical="true"
             android:text="Bonjour, veuillez vous authentifier"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -35,6 +37,48 @@
             tools:ignore="@drawable/common_google_signin_btn_icon_light_normal">
 
         </com.google.android.gms.common.SignInButton>
+
+        <TextView
+            android:id="@+id/lblMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageAccount"
+            android:layout_alignStart="@+id/pleaseAuth"
+            android:text="cedcdecd@cedcdeed.fr"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+        />
+
+        <TextView
+            android:id="@+id/lblNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/sign_in_button"
+            android:layout_below="@+id/pleaseAuth"
+            android:text="xcdeoxicdex"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/lblPrenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/sign_in_button"
+            android:layout_below="@+id/pleaseAuth"
+            android:layout_marginVertical="-150dp"
+            android:text="Arezrez"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageAccount"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/googleg_standard_color_18" />
+
 
 
     </RelativeLayout>
