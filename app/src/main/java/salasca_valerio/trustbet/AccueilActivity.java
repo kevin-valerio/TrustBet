@@ -115,7 +115,6 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     private void userLoggedIn(GoogleSignInAccount account) {
 
-        Log.d(TAG_NAME, "abcd");
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         View header = navigationView.getHeaderView(0);
@@ -210,6 +209,11 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
         if (id == R.id.nav_creer) {
             Intent myIntent = new Intent(AccueilActivity.this, CreatePariActivity.class);
+            AccueilActivity.this.startActivity(myIntent);
+        }
+
+        if (id == R.id.nav_rejoindre) {
+            Intent myIntent = new Intent(AccueilActivity.this, JoinPariActivity.class);
             AccueilActivity.this.startActivity(myIntent);
         }
 

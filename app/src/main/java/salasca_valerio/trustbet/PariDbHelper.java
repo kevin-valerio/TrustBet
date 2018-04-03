@@ -1,9 +1,11 @@
 package salasca_valerio.trustbet;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import static salasca_valerio.trustbet.DatabasePari.SQL_CREATE_ENTRIES;
 import static salasca_valerio.trustbet.DatabasePari.SQL_DELETE_ENTRIES;
@@ -26,6 +28,19 @@ public class PariDbHelper extends SQLiteOpenHelper {
 
         long newRowId = db.insert(DatabasePari.TABLE_NAME_PARI, null, values);
     }
+
+
+    public void joinPari(Long ID){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String strSQL = "UPDATE pari SET mail_userSecondaire = \"" + AccueilActivity.mainUser.getEmail()
+                + "\" WHERE bet_id = "+ ID;
+        db.execSQL(strSQL);
+
+
+    }
+
+
 
     public PariDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

@@ -31,10 +31,7 @@ public class User {
     }
 
     public String getRevenus() {
-        /*
 
-        BDDD Selectg
-         */
         String montant = "3.3";
         this.revenus = montant;
         return montant.toString() + " €";
