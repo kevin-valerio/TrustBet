@@ -115,6 +115,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     private void userLoggedIn(GoogleSignInAccount account) {
 
+        Log.d(TAG_NAME, "abcd");
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         View header = navigationView.getHeaderView(0);

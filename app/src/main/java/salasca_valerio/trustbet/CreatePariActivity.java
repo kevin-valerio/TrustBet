@@ -1,5 +1,6 @@
 package salasca_valerio.trustbet;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -82,7 +83,7 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
     }
 
 
-    private void createBetButtonAction() { // freesqldatabase, mdp = trustbet13300
+    private void createBetButtonAction() {
 
         Button createBetButton = findViewById(R.id.button_create_bet);
         createBetButton.setOnClickListener(new View.OnClickListener() {
@@ -99,18 +100,16 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
                 String myMail = AccueilActivity.mainUser.getEmail();
 
                 Pari pariCree = new Pari(titre, description, montant, dateEcheance, myMail);
-                pariCree.uploadToDatabase();
+                PariDbHelper pariDbHelper = new PariDbHelper(getBaseContext());
+                pariDbHelper.insertPari(pariCree);
 
-                Connection con = Database.getConnection();
+                AlertDialog alertDialog = new AlertDialog.Builder(CreatePariActivity.this).create();
+                alertDialog.setTitle("Pari crée");
+                alertDialog.setMessage("Votre pari d'ID : " + pariCree.getId() + " est crée ! Pensez à garder ce numéro, et donnez le à votre ami");
 
-
-
-
-
+                alertDialog.show();
 
             }
         });
     }
-
-
 }

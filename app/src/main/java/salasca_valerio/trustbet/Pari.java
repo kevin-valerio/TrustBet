@@ -5,11 +5,17 @@ import java.util.Date;
 
 public class Pari {
 
-        private String titre;
-        private String montant;
-        private String description;
-        private Date date;
-        private String mailOwner;
+    private static final String TAG = "PARI.JAVA";
+    private String titre;
+    private String montant;
+    private String description;
+    private long id;
+    private Date date;
+    private String mailOwner;
+
+    public long getId() {
+        return id;
+    }
 
     Pari(String titre, String description, String montant, Date dateEcheance, String myMail) {
         this.date = dateEcheance;
@@ -17,6 +23,8 @@ public class Pari {
         this.montant = montant;
         this.titre = titre;
         this.mailOwner = myMail;
+        this.id =  System.currentTimeMillis() / 1000L;
+
     }
 
     public String getMailOwner() {
@@ -44,7 +52,5 @@ public class Pari {
     }
 
 
-    public void uploadToDatabase() {
 
-    }
 }

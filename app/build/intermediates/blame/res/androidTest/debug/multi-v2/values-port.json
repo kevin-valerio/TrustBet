@@ -1,40 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/s16008030/StudioProjects/TrustBet/C:\\Users\\Utilisateur\\Desktop\\TrustBet\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-port\\values-port.xml",
+            "outputFile": "/home/v16007689/StudioProjects/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/home/s16008030/StudioProjects/TrustBet/C:\\Users\\Utilisateur\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\5d882657c970c962335cc4902d9604e8\\res\\values-port\\values-port.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "55",
-                        "endOffsets": "106"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/v16007689/Téléchargements/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-port/values-port.xml",
-            "map": [
-                {
-                    "source": "/home/v16007689/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/81d200c420430fd21624b5e932c345e0/res/values-port/values-port.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "55",
-                        "endOffsets": "106"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/s16008030/StudioProjects/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-port/values-port.xml",
-            "map": [
-                {
-                    "source": "/home/s16008030/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/c678c8a2d4a5251b9ab33bc427fea053/res/values-port/values-port.xml",
+                    "source": "/home/v16007689/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/3be3ff438e825db34a8458c61b31d962/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "453599460541-kto4t8fsgkc6mabkmsdnolpvq4svb9pr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "salasca_valerio.trustbet",
+            "certificate_hash": "f8ed50309a5ef512a32f342a56f4099daf779e1a"
+          }
+        },
+        {
+          "client_id": "453599460541-itanqrq04kn4ar3uo9uvoie3aqt8rr76.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "salasca_valerio.trustbet",
+            "certificate_hash": "d3bb63482079366d1582fe5258ac9f14fda0e790"
+          }
+        },
+        {
           "client_id": "453599460541-r6ngj9d4kcd89dkc0dl567sj2kci4j56.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
