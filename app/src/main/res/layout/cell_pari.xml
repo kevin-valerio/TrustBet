@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="90dp"
+    android:layout_margin="15dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/pari_number_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:text="Pari n°1" />
+
+    <!--
+    private String montant;
+    private Date date;
+    -->
+    <TextView
+        android:id="@+id/titre_pari_cell"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="-40dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        tools:text="titre du pari" />
+
+    <TextView
+        android:id="@+id/pari_description_cell"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:text="description du pari" />
+
+    <TextView
+        android:id="@+id/pari_montant_cell"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="-18dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:text="20€" />
+
+</LinearLayout>

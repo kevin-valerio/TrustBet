@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -25,9 +27,7 @@ import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -42,6 +42,9 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     public static User mainUser;
     private SignInButton signInButton;
     private GoogleApiClient mgoogleApiClient;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,22 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         Fabric.with(this, new Crashlytics());
         initInterface(initToolbar());
         initLogin();
+        initRecycleView();
 
     }
+
+    private void initRecycleView() {
+
+        mRecyclerView = findViewById(R.id.recycle_view);
+
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mAdapter = new AdapterPari();
+        mRecyclerView.setAdapter(mAdapter);
+
+    }
+
 
     private void createFloatingButton() {
 
@@ -126,7 +143,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         lblMail.setText(account.getEmail());
         lblMail.setVisibility(View.VISIBLE);
 
-        TextView lblNom =  header.findViewById(R.id.lblNom);
+        TextView lblNom = header.findViewById(R.id.lblNom);
         lblNom.setText(account.getFamilyName());
         lblNom.setVisibility(View.VISIBLE);
 
@@ -134,7 +151,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         lblPrenom.setText(account.getGivenName());
         lblPrenom.setVisibility(View.VISIBLE);
 
-        final ImageView pic =  header.findViewById(R.id.imageAccount);
+        final ImageView pic = header.findViewById(R.id.imageAccount);
         pic.setImageURI(account.getPhotoUrl());
         pic.setVisibility(View.VISIBLE);
 
@@ -142,7 +159,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         Glide.with(getApplicationContext()).load(account.getPhotoUrl()).asBitmap().centerCrop().into(new BitmapImageViewTarget(pic) {
             @Override
             protected void setResource(Bitmap resource) {
-                RoundedBitmapDrawable circularBitmapDrawable =  RoundedBitmapDrawableFactory.create(getApplicationContext().getResources(), resource);
+                RoundedBitmapDrawable circularBitmapDrawable = RoundedBitmapDrawableFactory.create(getApplicationContext().getResources(), resource);
                 circularBitmapDrawable.setCircular(true);
                 pic.setImageDrawable(circularBitmapDrawable);
             }
@@ -190,7 +207,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     @SuppressLint("SetTextI18n")
     private void initAllHeaderDetails() {
         TextView mRevenusFooter = findViewById(R.id.revenusFooter);
-      //  mRevenusFooter.setText(mainUser.getRevenus());
+        //  mRevenusFooter.setText(mainUser.getRevenus());
     }
 
     @Override
