@@ -10,14 +10,14 @@ public class Pari {
     private String montant;
     private String description;
     private long id;
-    private Date date;
+    private String date;
     private String mailOwner;
 
     public long getId() {
         return id;
     }
 
-    Pari(String titre, String description, String montant, Date dateEcheance, String myMail) {
+    Pari(String titre, String description, String montant, String dateEcheance, String myMail) {
         this.date = dateEcheance;
         this.description = description;
         this.montant = montant;
@@ -47,7 +47,7 @@ public class Pari {
         return description;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 

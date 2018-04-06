@@ -3,6 +3,8 @@ package salasca_valerio.trustbet;
 import android.accounts.Account;
 import android.net.Uri;
 
+import java.util.ArrayList;
+
 public class User {
 
     private String username;
@@ -25,9 +27,6 @@ public class User {
         this.givenName = givenName;
         this.photoUri = photoUri;
         this.revenus = getRevenus();
-
-
-
     }
 
     public String getRevenus() {
@@ -37,25 +36,16 @@ public class User {
         return montant.toString() + " €";
     }
 
-    public void setRevenus(String revenus) {
-        this.revenus = revenus;
-    }
+    public ArrayList<Pari> getParis(){
+        PariDbHelper pariDbHelper = new PariDbHelper(null);
+        return  pariDbHelper.getPariByMail(this.email);
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getId() {
         return id;
@@ -65,43 +55,5 @@ public class User {
         this.id = id;
     }
 
-    public String getIdToken() {
-        return idToken;
-    }
 
-    public void setIdToken(String idToken) {
-        this.idToken = idToken;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public String getFamilyName() {
-        return familyName;
-    }
-
-    public void setFamilyName(String familyName) {
-        this.familyName = familyName;
-    }
-
-    public String getGivenName() {
-        return givenName;
-    }
-
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
-
-    public Uri getPhotoUri() {
-        return photoUri;
-    }
-
-    public void setPhotoUri(Uri photoUri) {
-        this.photoUri = photoUri;
-    }
 }
