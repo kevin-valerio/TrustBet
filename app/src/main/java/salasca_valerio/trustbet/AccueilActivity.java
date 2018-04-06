@@ -52,7 +52,9 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         Fabric.with(this, new Crashlytics());
         initInterface(initToolbar());
         initLogin();
-        initRecycleView();
+
+        if(mainUser != null)
+            initRecycleView();
 
     }
 
@@ -175,6 +177,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 account.getGivenName(),
                 account.getPhotoUrl()
         );
+
+        initRecycleView();
     }
 
     private Toolbar initToolbar() {

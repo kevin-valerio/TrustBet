@@ -14,10 +14,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         tools:text="Pari n°1" />
 
-    <!--
-    private String montant;
-    private Date date;
-    -->
     <TextView
         android:id="@+id/titre_pari_cell"
         android:layout_width="130dp"
@@ -48,6 +44,7 @@
         android:ellipsize="end"
         android:lines="1"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#0069e1"
         tools:text="20€" />
 
 </LinearLayout>
