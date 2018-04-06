@@ -81,8 +81,6 @@ public class User {
         this.account = account;
     }
 
-
-
     public String getFamilyName() {
         return familyName;
     }
