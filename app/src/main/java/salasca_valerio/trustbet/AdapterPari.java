@@ -41,38 +41,20 @@ public class AdapterPari extends RecyclerView.Adapter<AdapterPari.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Pair<String, String> pair = characters.get(position);
-        holder.display(pair);
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView name;
-        private final TextView description;
 
         private Pair<String, String> currentPair;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
 
-            name = ((TextView) itemView.findViewById(R.id.name));
-            description = ((TextView) itemView.findViewById(R.id.description));
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentPair.first)
-                            .setMessage(currentPair.second)
-                            .show();
-                }
-            });
         }
 
-        public void display(Pair<String, String> pair) {
-            currentPair = pair;
-            name.setText(pair.first);
-            description.setText(pair.second);
-        }
+
     }
 
 }
