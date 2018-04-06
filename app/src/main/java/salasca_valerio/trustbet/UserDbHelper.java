@@ -12,7 +12,11 @@ import static salasca_valerio.trustbet.DatabaseUser.SQL_DELETE_ENTRIES;
 
 
 public class UserDbHelper extends SQLiteOpenHelper{
-    // qd un utilisateur ce connecte on l'insère dans la base
+    /* TODO 1  qd un utilisateur ce connecte on check et on l'insère dans la base s'il faut,
+       TODO 2. mes revenus : on va chercher les fonds dans la bd et pas un string en dur
+    */
+
+
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "TrustBet.db";
