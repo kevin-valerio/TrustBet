@@ -63,7 +63,8 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
         setDate(cal);
     }
 
-    public static class DatePickerFragment extends DialogFragment {
+    @SuppressWarnings("deprecation")
+     public static class DatePickerFragment extends DialogFragment {
 
         @NonNull
         @Override
@@ -72,9 +73,7 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
             int year = c.get(Calendar.YEAR);
             int month = c.get(Calendar.MONTH);
             int day = c.get(Calendar.DAY_OF_MONTH);
-
-
-            CreatePariActivity.dateEcheance = new Date(year, month, day);
+             CreatePariActivity.dateEcheance = new Date(year, month, day);
             return new DatePickerDialog(getActivity(),
                     (DatePickerDialog.OnDateSetListener)
                             getActivity(), year, month, day);

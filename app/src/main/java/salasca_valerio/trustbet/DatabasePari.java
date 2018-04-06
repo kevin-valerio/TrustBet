@@ -1,8 +1,5 @@
 package salasca_valerio.trustbet;
-
-import android.content.Context;
-import android.database.sqlite.SQLiteOpenHelper;
-
+ 
 public class DatabasePari {
 
 
@@ -25,7 +22,5 @@ public class DatabasePari {
 
     public static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS '" + TABLE_NAME_PARI + "'";
-
-
 
 }
