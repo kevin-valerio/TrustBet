@@ -15,29 +15,39 @@
         tools:text="Pari n°1" />
 
     <!--
-       private String titre;
     private String montant;
-    private String description;
-    private long id;
     private Date date;
-    private String mailOwner;
     -->
     <TextView
         android:id="@+id/titre_pari_cell"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="-40dp"
-        android:layout_marginLeft="90dp"
+        android:ellipsize="end"
         android:lines="1"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
         tools:text="titre du pari" />
+
     <TextView
         android:id="@+id/pari_description_cell"
-        android:layout_width="130dp"
+        android:layout_width="186dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ellipsize="end"
         android:lines="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        tools:text="titre du pari" />
+        tools:text="description du pari" />
+
+    <TextView
+        android:id="@+id/pari_montant_cell"
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="-18dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:text="20€" />
+
 </LinearLayout>
