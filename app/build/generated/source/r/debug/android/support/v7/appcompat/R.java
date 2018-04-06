@@ -675,6 +675,7 @@ public final class R {
         public static final int text2 = 0x7f0800c0;
         public static final int textSpacerNoButtons = 0x7f0800c1;
         public static final int textSpacerNoTitle = 0x7f0800c2;
+
         public static final int time = 0x7f0800c9;
         public static final int title = 0x7f0800ca;
         public static final int titleDividerNoCustom = 0x7f0800cb;
@@ -719,6 +720,7 @@ public final class R {
         public static final int abc_search_dropdown_item_icons_2line = 0x7f0a0018;
         public static final int abc_search_view = 0x7f0a0019;
         public static final int abc_select_dialog_material = 0x7f0a001a;
+
         public static final int notification_action = 0x7f0a0033;
         public static final int notification_action_tombstone = 0x7f0a0034;
         public static final int notification_media_action = 0x7f0a0035;

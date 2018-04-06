@@ -14,6 +14,21 @@
                     }
                 }
             ]
+        },
+        {
+            "outputFile": "/home/s16008030/StudioProjects/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/s16008030/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/485ecf2d73a1430f85f6b024b0cc2344/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
         }
     ]
 }

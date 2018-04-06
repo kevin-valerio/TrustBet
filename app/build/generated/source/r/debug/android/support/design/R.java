@@ -767,6 +767,7 @@ public final class R {
         public static final int actions = 0x7f080018;
         public static final int activity_chooser_view_content = 0x7f080019;
         public static final int add = 0x7f08001a;
+
         public static final int alertTitle = 0x7f08001d;
         public static final int async = 0x7f080020;
         public static final int auto = 0x7f080021;
@@ -869,6 +870,7 @@ public final class R {
         public static final int text2 = 0x7f0800c0;
         public static final int textSpacerNoButtons = 0x7f0800c1;
         public static final int textSpacerNoTitle = 0x7f0800c2;
+
         public static final int text_input_password_toggle = 0x7f0800c6;
         public static final int textinput_counter = 0x7f0800c7;
         public static final int textinput_error = 0x7f0800c8;
@@ -930,6 +932,7 @@ public final class R {
         public static final int abc_search_dropdown_item_icons_2line = 0x7f0a0018;
         public static final int abc_search_view = 0x7f0a0019;
         public static final int abc_select_dialog_material = 0x7f0a001a;
+
         public static final int design_bottom_navigation_item = 0x7f0a0022;
         public static final int design_bottom_sheet_dialog = 0x7f0a0023;
         public static final int design_layout_snackbar = 0x7f0a0024;

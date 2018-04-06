@@ -1,6 +1,40 @@
 {
     "logs": [
         {
+            "outputFile": "/home/s16008030/StudioProjects/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
+            "map": [
+                {
+                    "source": "/home/s16008030/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/e326ce203b0894c3129bd1c338718e0f/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "232"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "328",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "505"
+                    }
+                },
+                {
+                    "source": "/home/s16008030/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/485ecf2d73a1430f85f6b024b0cc2344/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,125,189,260",
+                        "endColumns": "69,63,70,67",
+                        "endOffsets": "120,184,255,323"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/v16007689/StudioProjects/TrustBet/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {

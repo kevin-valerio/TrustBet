@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".CreatePariActivity" />
         <activity android:name=".JoinPariActivity" />
+        <activity android:name=".AddFoundsActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="aab52d3c96a0671846fac99f4633dcbe24182533" />

@@ -233,6 +233,10 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
             Intent myIntent = new Intent(AccueilActivity.this, JoinPariActivity.class);
             AccueilActivity.this.startActivity(myIntent);
         }
+        if (id == R.id.nav_portefeuille) {
+            Intent myIntent = new Intent(AccueilActivity.this, AddFoundsActivity.class);
+            AccueilActivity.this.startActivity(myIntent);
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
