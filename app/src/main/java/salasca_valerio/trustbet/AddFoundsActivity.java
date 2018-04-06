@@ -32,10 +32,10 @@ public class AddFoundsActivity extends AppCompatActivity{
 
 
 
-//
-//                        PariDbHelper newPariDb = new PariDbHelper(getBaseContext());
-//                        newPariDb.joinPari(Long.parseLong(ID));
-//
+
+                UserDbHelper newUserDb = new UserDbHelper(getBaseContext());
+                newUserDb.addFunds(amount);
+
                 AlertDialog alertDialog = new AlertDialog.Builder(AddFoundsActivity.this).create();
                 alertDialog.setTitle("Fond ajouté");
                 alertDialog.setMessage("Vous avez ajouté :" + amount);

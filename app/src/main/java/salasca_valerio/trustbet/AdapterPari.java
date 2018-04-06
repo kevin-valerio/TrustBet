@@ -25,23 +25,26 @@ public class AdapterPari extends RecyclerView.Adapter<AdapterPari.ViewHolderSing
     }
 
     @Override
+ 
     public void onBindViewHolder(ViewHolderSinglePari holder, int position) {
         Pari pari = AccueilActivity.mainUser.getParis().get(position);
         holder.display(pari);
-    }
+     }
 
     public class ViewHolderSinglePari extends RecyclerView.ViewHolder {
 
+ 
         private final TextView titre;
         private final TextView description;
         private final TextView montant;
         private final TextView number;
-
+ 
         private Pari currentPari;
 
         public ViewHolderSinglePari(final View itemView) {
             super(itemView);
 
+ 
             titre = itemView.findViewById(R.id.titre_pari_cell);
             number = itemView.findViewById(R.id.pari_number_cell);
             montant = itemView.findViewById(R.id.pari_montant_cell);
@@ -64,7 +67,9 @@ public class AdapterPari extends RecyclerView.Adapter<AdapterPari.ViewHolderSing
             number.setText("Pari " + pari.getId());
             montant.setText(pari.getMontant());
             description.setText(pari.getDescription());
-        }
+         }
+
+
     }
 
 }
