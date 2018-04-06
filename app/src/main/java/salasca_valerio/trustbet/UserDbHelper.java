@@ -5,12 +5,14 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import static salasca_valerio.trustbet.DatabaseUser.MAIL_USER;
 import static salasca_valerio.trustbet.DatabaseUser.SQL_CREATE_ENTRIES;
 import static salasca_valerio.trustbet.DatabaseUser.SQL_DELETE_ENTRIES;
 
 
 
 public class UserDbHelper extends SQLiteOpenHelper{
+    // qd un utilisateur ce connecte on l'insère dans la base
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "TrustBet.db";
@@ -19,26 +21,12 @@ public class UserDbHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-//        values.put(DatabasePari.MAIL_USER_PRIMAIRE, pari.getMailOwner());
-//        values.put(DatabasePari.BET_ID, pari.getId());
-//        values.put(DatabasePari.MAIL_USER_SECONDAIRE, "NULL");
-//        values.put(DatabasePari.DESCRIPTION, pari.getDescription());
-//        values.put(DatabasePari.DATE, pari.getDate().toString());
-//        values.put(DatabasePari.MONTANT, pari.getMontant());
+        values.put(DatabaseUser.FUNDS, amount);
 
-        long newRowId = db.insert(DatabasePari.TABLE_NAME_PARI, null, values);
+
+        db.update(DatabaseUser.TABLE_NAME_USER, values," WHERE "+MAIL_USER +" = " + AccueilActivity.mainUser.getEmail(),null);
     }
 
-
-    public void joinPari(Long ID){
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        String strSQL = "UPDATE pari SET mail_userSecondaire = \"" + AccueilActivity.mainUser.getEmail()
-                + "\" WHERE bet_id = "+ ID;
-        db.execSQL(strSQL);
-
-
-    }
 
 
 
