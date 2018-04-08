@@ -227,6 +227,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
             alertDialog.setTitle("TrustBet");
             alertDialog.setMessage("C'est votre première connexion, 20euros vous ont été crédité");
             alertDialog.show();
+            newUserDb.insertUser(account.getEmail());
         }
         lblMail.setVisibility(View.VISIBLE);
 

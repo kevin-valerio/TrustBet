@@ -57,21 +57,15 @@ public class UserDbHelper extends SQLiteOpenHelper{
 
     }
 
-//    public void insertUser(String mail){
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(DatabasePari.MAIL_USER_PRIMAIRE, pari.getMailOwner());
-//        values.put(DatabasePari.BET_ID, pari.getId());
-//        values.put(DatabasePari.TITRE, pari.getTitre());
-//        values.put(DatabasePari.MAIL_USER_SECONDAIRE, "NULL");
-//        values.put(DatabasePari.DESCRIPTION, pari.getDescription());
-//        values.put(DatabasePari.DATE, pari.getDate());
-//        values.put(DatabasePari.MONTANT, pari.getMontant());
-//
-//        long newRowId = db.insert(DatabasePari.TABLE_NAME_PARI, null, values);
-//        String ROW1 = "INSERT INTO " + TABLE_NAME_USER + " Values ("+mail+",20);";
-//        db.execSQL(ROW1);
-//    }
+    public void insertUser(String mail){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DatabaseUser.MAIL_USER, mail);
+        values.put(DatabaseUser.FUNDS, 20);
+
+
+        long newRowId = db.insert(DatabaseUser.TABLE_NAME_USER, null, values);
+    }
 
 
 
