@@ -36,7 +36,7 @@ public class UserDbHelper extends SQLiteOpenHelper{
         values.put(DatabaseUser.FUNDS, amount);
 
 
-        db.update(DatabaseUser.TABLE_NAME_USER, values," WHERE "+MAIL_USER +" = " + AccueilActivity.mainUser.getEmail(),null);
+        db.update(DatabaseUser.TABLE_NAME_USER, values,MAIL_USER +" = '" + AccueilActivity.mainUser.getEmail()+"'",null);
     }
 
     public boolean isUserInDB(String mail){

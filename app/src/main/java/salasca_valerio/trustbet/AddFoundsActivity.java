@@ -33,8 +33,8 @@ public class AddFoundsActivity extends AppCompatActivity{
 
 
 
-//                UserDbHelper newUserDb = new UserDbHelper(getBaseContext());
-//                newUserDb.addFunds(amount);
+                UserDbHelper newUserDb = new UserDbHelper(getBaseContext());
+                newUserDb.addFunds(amount);
 
                 AlertDialog alertDialog = new AlertDialog.Builder(AddFoundsActivity.this).create();
                 alertDialog.setTitle("Fond ajouté");
