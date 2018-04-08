@@ -1,12 +1,19 @@
 package salasca_valerio.trustbet;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,6 +25,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,10 +35,12 @@ import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import io.fabric.sdk.android.Fabric;
@@ -40,15 +50,35 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     private static final int RC_SIGN_IN = 9000;
     private static String TAG_NAME = "AccueilActivity";
     public static User mainUser;
-    private SignInButton signInButton;
     private GoogleApiClient mgoogleApiClient;
-    private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+     NavigationView navigationView;
+    private  GoogleSignInClient mGoogleSignInClient;
 
-    @Override
+     private final void createNotification(){
+        final NotificationManager mNotification = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        final Intent launchNotifiactionIntent = new Intent(this, AccueilActivity.class);
+        final PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                12, launchNotifiactionIntent,
+                PendingIntent.FLAG_ONE_SHOT);
+
+        Notification.Builder builder = new Notification.Builder(this)
+                .setWhen(System.currentTimeMillis())
+                .setTicker("xx")
+                 .setContentTitle("xx")
+                .setContentText("xxxx")
+                .setContentIntent(pendingIntent);
+
+        mNotification.notify(12, builder.build());
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        createNotification();
+       // createFloatingButton();
+
         Fabric.with(this, new Crashlytics());
         initInterface(initToolbar());
         initLogin();
@@ -60,7 +90,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     private void initRecycleView() {
 
-        mRecyclerView = findViewById(R.id.recycle_view);
+        RecyclerView mRecyclerView = findViewById(R.id.recycle_view);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -69,7 +99,6 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         mRecyclerView.setAdapter(mAdapter);
 
     }
-
 
     private void createFloatingButton() {
 
@@ -99,11 +128,12 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+          mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
         View header = navigationView.getHeaderView(0);
-        signInButton = header.findViewById(R.id.sign_in_button);
-
+        SignInButton signInButton = header.findViewById(R.id.sign_in_button);
+        Button signOutButton = header.findViewById(R.id.sign_out_button);
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,11 +141,44 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
+
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signOut();
+            }
+        });
+
+
+    }
+
+    private void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        AlertDialog alertDialog = new AlertDialog.Builder(AccueilActivity.this).create();
+                        alertDialog.setTitle("Deconnecté");
+                        alertDialog.setMessage("Vous avez bien été déconnecté");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                        Intent myIntent = new Intent(AccueilActivity.this, AccueilActivity.class);
+                                        AccueilActivity.this.startActivity(myIntent);
+                                        mainUser = null;
+                                    }
+                                });
+                        alertDialog.show();
+
+                    }
+                });
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
+         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
@@ -134,12 +197,13 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     private void userLoggedIn(GoogleSignInAccount account) {
 
+        navigationView.setVisibility(View.INVISIBLE);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
         View header = navigationView.getHeaderView(0);
 
         header.findViewById(R.id.sign_in_button).setVisibility(View.INVISIBLE);
         header.findViewById(R.id.pleaseAuth).setVisibility(View.INVISIBLE);
+        header.findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
 
         TextView lblMail = header.findViewById(R.id.lblMail);
         lblMail.setText(account.getEmail());
@@ -156,6 +220,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         final ImageView pic = header.findViewById(R.id.imageAccount);
         pic.setImageURI(account.getPhotoUrl());
         pic.setVisibility(View.VISIBLE);
+
 
 
         Glide.with(getApplicationContext()).load(account.getPhotoUrl()).asBitmap().centerCrop().into(new BitmapImageViewTarget(pic) {
@@ -178,7 +243,10 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 account.getGivenName(),
                 account.getPhotoUrl()
         );
+        mainUser.giveFreeMoney();
 
+
+        initAllHeaderDetails();
         initRecycleView();
     }
 
@@ -192,6 +260,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     }
 
     private void initInterface(Toolbar toolbar) {
+        navigationView = findViewById(R.id.nav_view);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -199,11 +268,9 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        createFloatingButton();
+//        createFloatingButton();
 
         initAllHeaderDetails();
 
@@ -212,7 +279,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     @SuppressLint("SetTextI18n")
     private void initAllHeaderDetails() {
         TextView mRevenusFooter = findViewById(R.id.revenusFooter);
-        //  mRevenusFooter.setText(mainUser.getRevenus());
+        if(mainUser != null)
+            mRevenusFooter.setText(mainUser.getRevenus() + "€");
     }
 
     @Override

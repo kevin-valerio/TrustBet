@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -102,7 +103,7 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
                 PariDbHelper pariDbHelper = new PariDbHelper(getBaseContext());
                 pariDbHelper.insertPari(pariCree);
 
-                AlertDialog alertDialog = new AlertDialog.Builder(CreatePariActivity.this).create();
+                 AlertDialog alertDialog = new AlertDialog.Builder(CreatePariActivity.this).create();
                 alertDialog.setTitle("Pari crée");
                 alertDialog.setMessage("Votre pari d'ID : " + pariCree.getId() + " est crée ! Pensez à garder ce numéro, et donnez le à votre ami");
 
@@ -111,4 +112,5 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
             }
         });
     }
+
 }

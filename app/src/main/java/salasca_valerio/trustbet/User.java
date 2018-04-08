@@ -16,7 +16,7 @@ public class User {
     private String familyName;
     private String givenName;
     private Uri photoUri;
-    private String revenus;
+    private Double revenus = 0.0;
     private Context context;
 
     User(Context context, String username, String email, String id, String idToken, Account account, String familyName, String givenName, Uri photoUri) {
@@ -33,11 +33,12 @@ public class User {
 
     }
 
-    public String getRevenus() {
+    public Double getRevenus() {
+         return revenus;
+    }
 
-        String montant = "3.3";
-        this.revenus = montant;
-        return montant.toString() + " €";
+    public void giveFreeMoney(){
+        revenus += 10.50;
     }
 
     public ArrayList<Pari> getParis(){
