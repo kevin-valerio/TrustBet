@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.support.v4.app.DialogFragment;
 
@@ -24,7 +26,8 @@ import java.util.GregorianCalendar;
 
 public class CreatePariActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-
+   private ShareActionProvider mShareActionProvider;
+    private long pariId = 0;
    public static String dateEcheance;
 
     @Override
@@ -33,7 +36,35 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
         setContentView(R.layout.activity_create_pari);
         createBetButtonAction();
         createGoBackButton();
+        createShareButton();
     }
+
+    private void createShareButton() {
+        final FloatingActionButton share = findViewById(R.id.shareBtn);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(pariId  == 0){
+                    AlertDialog alertDialog = new AlertDialog.Builder(CreatePariActivity.this).create();
+                    alertDialog.setTitle("Alerte ! Pari non partagé");
+                    alertDialog.setMessage("Veuillez dans un premier temps créer un pari");
+
+                }
+                else{
+                    Intent myIntent = new Intent(Intent.ACTION_SEND);
+                    myIntent.setType("text/plain");
+                    myIntent.putExtra(Intent.EXTRA_SUBJECT, "Numéro de pari : ");
+                    myIntent.putExtra(Intent.EXTRA_TEXT, "Numéro de pari : " + pariId);
+                    startActivity(Intent.createChooser(myIntent, "Partagez votre numéro de pari !"));
+
+                }
+
+            }
+        });
+    }
+
+
 
     private void createGoBackButton() {
         Button goBack = findViewById(R.id.goAccueil);
@@ -45,7 +76,6 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
             }
         });
     }
-
 
     public void datePicker(View view) {
 
@@ -102,6 +132,8 @@ public class CreatePariActivity extends AppCompatActivity implements DatePickerD
                 Pari pariCree = new Pari(titre, description, montant, dateEcheance, myMail);
                 PariDbHelper pariDbHelper = new PariDbHelper(getBaseContext());
                 pariDbHelper.insertPari(pariCree);
+
+                pariId = pariCree.getId();
 
                  AlertDialog alertDialog = new AlertDialog.Builder(CreatePariActivity.this).create();
                 alertDialog.setTitle("Pari crée");
