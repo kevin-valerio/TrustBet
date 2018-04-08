@@ -15,6 +15,18 @@
       },
       "oauth_client": [
         {
+          "client_id": "453599460541-bif0nhhauicqt0cdqg2fqlgt34l3srpe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "salasca_valerio.trustbet",
+            "certificate_hash": "9a2ca574f77a111d435a09d7dc4cceb337bf170e"
+          }
+        },
+        {
+          "client_id": "453599460541-2cvpdta64jf9idio49m3j6hojqf1adtg.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
           "client_id": "453599460541-kto4t8fsgkc6mabkmsdnolpvq4svb9pr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -56,7 +68,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "453599460541-bur4t930ao5g7pqt87odjsi7c2qo9dhg.apps.googleusercontent.com",
+              "client_id": "453599460541-2cvpdta64jf9idio49m3j6hojqf1adtg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
