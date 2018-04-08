@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import static salasca_valerio.trustbet.DatabaseUser.FUNDS;
 import static salasca_valerio.trustbet.DatabaseUser.SQL_CREATE_ENTRIES;
 import static salasca_valerio.trustbet.DatabaseUser.MAIL_USER;
 import static salasca_valerio.trustbet.DatabaseUser.SQL_DELETE_ENTRIES;
@@ -33,10 +34,25 @@ public class UserDbHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(DatabaseUser.FUNDS, amount);
+        values.put(FUNDS, amount);
 
 
         db.update(DatabaseUser.TABLE_NAME_USER, values,MAIL_USER +" = '" + AccueilActivity.mainUser.getEmail()+"'",null);
+    }
+
+    public int getFunds(String mail){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT "+FUNDS+"  FROM user WHERE mail_user = '"+mail+"'", null);
+        if(!c.moveToFirst()) { //movetofirst retourne faux si le curseur est vide
+
+            return Integer.parseInt(c.getString(c.getColumnIndex(FUNDS)));
+        }
+        else {
+
+            return  0;
+        }
+
+
     }
 
     public boolean isUserInDB(String mail){
@@ -61,7 +77,7 @@ public class UserDbHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DatabaseUser.MAIL_USER, mail);
-        values.put(DatabaseUser.FUNDS, 20);
+        values.put(FUNDS, 20);
 
 
         long newRowId = db.insert(DatabaseUser.TABLE_NAME_USER, null, values);

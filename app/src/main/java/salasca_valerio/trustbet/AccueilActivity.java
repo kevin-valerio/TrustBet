@@ -216,7 +216,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         lblMail.setText(account.getEmail());
 
         UserDbHelper newUserDb = new UserDbHelper(getBaseContext());
-        if (newUserDb.isUserInDB(account.getEmail())){
+
+        if (newUserDb.isUserInDB(account.getEmail())){ // si ce n'est pas sa 1re co TODO: erreur on n'arrive jamais dans ce cas
             android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(AccueilActivity.this).create();
             alertDialog.setTitle("Trustbet");
             alertDialog.setMessage("Bienvenue");
@@ -267,7 +268,9 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 account.getGivenName(),
                 account.getPhotoUrl()
         );
-        mainUser.giveFreeMoney();
+//        mainUser.giveFreeMoney();
+        mainUser.setRevenus((double) newUserDb.getFunds(mainUser.getEmail()));
+
 
 
         initAllHeaderDetails();
