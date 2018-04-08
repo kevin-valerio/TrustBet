@@ -198,6 +198,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         }
     }
 
+
+
     private void userLoggedIn(GoogleSignInAccount account) {
 
         navigationView.setVisibility(View.INVISIBLE);
@@ -209,7 +211,13 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         header.findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
 
         TextView lblMail = header.findViewById(R.id.lblMail);
+
+
         lblMail.setText(account.getEmail());
+
+        UserDbHelper newUserDb = new UserDbHelper(getBaseContext());
+        newUserDb.isUserInDB(account.getEmail()); // vérifie si déja dans la bd sinon l'insère
+
         lblMail.setVisibility(View.VISIBLE);
 
         TextView lblNom = header.findViewById(R.id.lblNom);
@@ -223,6 +231,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         final ImageView pic = header.findViewById(R.id.imageAccount);
         pic.setImageURI(account.getPhotoUrl());
         pic.setVisibility(View.VISIBLE);
+
+        //mettre à jour revenus
 
 
 
