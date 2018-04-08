@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import static salasca_valerio.trustbet.DatabaseUser.MAIL_USER;
 import static salasca_valerio.trustbet.DatabaseUser.SQL_CREATE_ENTRIES;
+import static salasca_valerio.trustbet.DatabaseUser.MAIL_USER;
 import static salasca_valerio.trustbet.DatabaseUser.SQL_DELETE_ENTRIES;
 import static salasca_valerio.trustbet.DatabaseUser.TABLE_NAME_USER;
 
@@ -24,7 +24,7 @@ public class UserDbHelper extends SQLiteOpenHelper{
 
 
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "TrustBet.db";
     public static final String TAG = "UserDbHelper";
 
@@ -39,25 +39,39 @@ public class UserDbHelper extends SQLiteOpenHelper{
         db.update(DatabaseUser.TABLE_NAME_USER, values," WHERE "+MAIL_USER +" = " + AccueilActivity.mainUser.getEmail(),null);
     }
 
-    public void isUserInDB(String mail){
+    public boolean isUserInDB(String mail){
 
         //check si déja dans la bd
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM user WHERE mail_user = '"+mail+"'", null);
         if(!c.moveToFirst()) { //movetofirst retourne faux si le curseur est vide
-//            String ROW1 = "INSERT INTO " + TABLE_NAME_USER + " Values (mail,20);";
-//            db.execSQL(ROW1);
-            Log.d(TAG, "insertion réussie");
 
+            return false;
         }
-        c.close();
-        db.close();
+        else {
 
-
+            return  true;
+        }
 
 
 
     }
+
+//    public void insertUser(String mail){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(DatabasePari.MAIL_USER_PRIMAIRE, pari.getMailOwner());
+//        values.put(DatabasePari.BET_ID, pari.getId());
+//        values.put(DatabasePari.TITRE, pari.getTitre());
+//        values.put(DatabasePari.MAIL_USER_SECONDAIRE, "NULL");
+//        values.put(DatabasePari.DESCRIPTION, pari.getDescription());
+//        values.put(DatabasePari.DATE, pari.getDate());
+//        values.put(DatabasePari.MONTANT, pari.getMontant());
+//
+//        long newRowId = db.insert(DatabasePari.TABLE_NAME_PARI, null, values);
+//        String ROW1 = "INSERT INTO " + TABLE_NAME_USER + " Values ("+mail+",20);";
+//        db.execSQL(ROW1);
+//    }
 
 
 

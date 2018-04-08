@@ -56,7 +56,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     NavigationView navigationView;
     private  GoogleSignInClient mGoogleSignInClient;
 
-     private final void createNotification(){
+    private final void createNotification(){
         final NotificationManager mNotification = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         final Intent launchNotifiactionIntent = new Intent(this, AccueilActivity.class);
@@ -131,7 +131,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-          mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
         View header = navigationView.getHeaderView(0);
@@ -181,7 +181,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-         super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
@@ -216,8 +216,18 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         lblMail.setText(account.getEmail());
 
         UserDbHelper newUserDb = new UserDbHelper(getBaseContext());
-        newUserDb.isUserInDB(account.getEmail()); // vérifie si déja dans la bd sinon l'insère
-
+        if (newUserDb.isUserInDB(account.getEmail())){
+            android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(AccueilActivity.this).create();
+            alertDialog.setTitle("Trustbet");
+            alertDialog.setMessage("Bienvenue");
+            alertDialog.show();
+        }
+        else {
+            android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(AccueilActivity.this).create();
+            alertDialog.setTitle("TrustBet");
+            alertDialog.setMessage("C'est votre première connexion, 20euros vous ont été crédité");
+            alertDialog.show();
+        }
         lblMail.setVisibility(View.VISIBLE);
 
         TextView lblNom = header.findViewById(R.id.lblNom);
