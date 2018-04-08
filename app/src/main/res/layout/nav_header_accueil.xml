@@ -38,6 +38,15 @@
 
         </com.google.android.gms.common.SignInButton>
 
+        <Button
+            android:id="@+id/sign_out_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:text="Sign Out"
+            android:visibility="invisible" />
+
         <TextView
             android:id="@+id/lblMail"
             android:layout_width="wrap_content"
@@ -53,8 +62,9 @@
             android:id="@+id/lblNom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/sign_in_button"
-            android:layout_below="@+id/pleaseAuth"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="132dp"
             android:text="xcdeoxicdex"
             android:textSize="16sp"
             android:visibility="invisible" />
@@ -63,9 +73,9 @@
             android:id="@+id/lblPrenom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/sign_in_button"
-            android:layout_below="@+id/pleaseAuth"
+            android:layout_alignParentBottom="true"
             android:layout_marginVertical="-150dp"
+            android:layout_toStartOf="@+id/pleaseAuth"
             android:text="Arezrez"
             android:textSize="16sp"
             android:visibility="invisible" />

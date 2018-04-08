@@ -1,5 +1,6 @@
 package salasca_valerio.trustbet;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
@@ -63,11 +64,12 @@ public class AdapterPari extends RecyclerView.Adapter<AdapterPari.ViewHolderSing
             });
         }
 
+        @SuppressLint("SetTextI18n")
         public void display(Pari pari) {
             currentPari = pari;
             titre.setText(pari.getTitre());
             number.setText("Pari " + pari.getId());
-            montant.setText(pari.getMontant());
+            montant.setText(pari.getMontant() + " €");
             description.setText(pari.getDescription());
          }
 

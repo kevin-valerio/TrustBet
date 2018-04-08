@@ -11,18 +11,20 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_view"
         android:layout_width="382dp"
-        android:layout_height="455dp"
+        android:layout_height="482dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        tools:layout_editor_absoluteY="54dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="54dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="29dp"
+        android:layout_marginStart="78dp"
         android:text="Tous vos paris dans une seule page !"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="6dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="6dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

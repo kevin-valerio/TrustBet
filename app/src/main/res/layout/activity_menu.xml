@@ -20,7 +20,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_accueil"
-        app:menu="@layout/activity_accueil_drawer">
+        app:menu="@layout/activity_accueil_drawer"
+        android:visibility="invisible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,15 +43,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:text="0 €" />
+                android:text="0 €"
+                />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
     </android.support.design.widget.NavigationView>
 
 
