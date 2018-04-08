@@ -52,7 +52,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     public static User mainUser;
     private GoogleApiClient mgoogleApiClient;
     private RecyclerView.Adapter mAdapter;
-     NavigationView navigationView;
+    private FloatingActionButton fab;
+    NavigationView navigationView;
     private  GoogleSignInClient mGoogleSignInClient;
 
      private final void createNotification(){
@@ -65,9 +66,10 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
         Notification.Builder builder = new Notification.Builder(this)
                 .setWhen(System.currentTimeMillis())
-                .setTicker("xx")
-                 .setContentTitle("xx")
-                .setContentText("xxxx")
+                .setTicker("Bienvenue sur Trustbet !")
+                .setSmallIcon(R.drawable.common_google_signin_btn_icon_dark)
+                .setContentTitle("Bienvenue sur Trustbet !")
+                .setContentText("Vous pouvez créer et rejoindre des paris dès maintenant !")
                 .setContentIntent(pendingIntent);
 
         mNotification.notify(12, builder.build());
@@ -77,7 +79,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
         super.onCreate(savedInstanceState);
         createNotification();
-       // createFloatingButton();
+
 
         Fabric.with(this, new Crashlytics());
         initInterface(initToolbar());
@@ -100,9 +102,10 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     }
 
+
     private void createFloatingButton() {
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = (FloatingActionButton)  findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
