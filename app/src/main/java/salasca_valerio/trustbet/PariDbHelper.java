@@ -48,7 +48,7 @@ public class PariDbHelper extends SQLiteOpenHelper {
                 String description = c.getString(1);
                 String montant = c.getString(2);
                 String dateEcheance = c.getString(3);
-                parisTemp.add(new Pari(titre, description, montant, dateEcheance, mail));
+               // parisTemp.add(new Pari(titre, description, montant, dateEcheance, mail));
             } while (c.moveToNext());
         }
         c.close();
