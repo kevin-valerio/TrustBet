@@ -168,6 +168,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         });
 
         mainUser = new User(
+                getBaseContext(),
                 account.getDisplayName(),
                 account.getEmail(),
                 account.getId(),

@@ -1,6 +1,7 @@
 package salasca_valerio.trustbet;
 
 import android.accounts.Account;
+import android.content.Context;
 import android.net.Uri;
 
 import java.util.ArrayList;
@@ -16,8 +17,9 @@ public class User {
     private String givenName;
     private Uri photoUri;
     private String revenus;
+    private Context context;
 
-    User(String username, String email, String id, String idToken, Account account, String familyName, String givenName, Uri photoUri) {
+    User(Context context, String username, String email, String id, String idToken, Account account, String familyName, String givenName, Uri photoUri) {
         this.username = username;
         this.email = email;
         this.id = id;
@@ -27,6 +29,8 @@ public class User {
         this.givenName = givenName;
         this.photoUri = photoUri;
         this.revenus = getRevenus();
+        this.context=context;
+
     }
 
     public String getRevenus() {
@@ -37,7 +41,7 @@ public class User {
     }
 
     public ArrayList<Pari> getParis(){
-        PariDbHelper pariDbHelper = new PariDbHelper(null);
+        PariDbHelper pariDbHelper = new PariDbHelper(context);
         return  pariDbHelper.getPariByMail(this.email);
 
     }

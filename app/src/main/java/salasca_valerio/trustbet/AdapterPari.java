@@ -14,6 +14,8 @@ public class AdapterPari extends RecyclerView.Adapter<AdapterPari.ViewHolderSing
 
     @Override
     public int getItemCount() {
+
+        if(AccueilActivity.mainUser.getParis() == null) return 0;
         return AccueilActivity.mainUser.getParis().size();
     }
 
