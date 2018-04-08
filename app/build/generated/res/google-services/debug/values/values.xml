@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">453599460541-bur4t930ao5g7pqt87odjsi7c2qo9dhg.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">453599460541-2cvpdta64jf9idio49m3j6hojqf1adtg.apps.googleusercontent.com</string>
     <string name="firebase_database_url" translatable="false">https://trustbet-f7b52.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">453599460541</string>
     <string name="google_api_key" translatable="false">AIzaSyAqPXItZvhHr5pkhazPZedIhfkVfzTnTFE</string>
