@@ -21,6 +21,7 @@ public class PariDbHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "TrustBet.db";
+    public static final String TAG = "PariDbHelper";
 
     public void insertPari(Pari pari) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -38,7 +39,7 @@ public class PariDbHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Pari> getPariByMail(String mail) {
-        ArrayList<Pari> parisTemp = null;
+        ArrayList<Pari> parisTemp = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT " + DatabasePari.TITRE + ", " +
                 DESCRIPTION + "," + MONTANT + "," +  DATE + " FROM " + TABLE_NAME_PARI, null);
@@ -48,7 +49,8 @@ public class PariDbHelper extends SQLiteOpenHelper {
                 String description = c.getString(1);
                 String montant = c.getString(2);
                 String dateEcheance = c.getString(3);
-               // parisTemp.add(new Pari(titre, description, montant, dateEcheance, mail));
+                Log.d(TAG, titre + montant + description + dateEcheance + " !! test");
+                parisTemp.add(new Pari(titre, description, montant, dateEcheance, mail));
             } while (c.moveToNext());
         }
         c.close();
