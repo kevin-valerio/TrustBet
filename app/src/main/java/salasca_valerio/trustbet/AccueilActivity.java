@@ -56,7 +56,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
     NavigationView navigationView;
     private  GoogleSignInClient mGoogleSignInClient;
 
-     private final void createNotification(){
+    private final void createNotification(){
         final NotificationManager mNotification = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         final Intent launchNotifiactionIntent = new Intent(this, AccueilActivity.class);
@@ -131,7 +131,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-          mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
         View header = navigationView.getHeaderView(0);
@@ -181,7 +181,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-         super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
@@ -198,6 +198,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         }
     }
 
+
+
     private void userLoggedIn(GoogleSignInAccount account) {
 
         navigationView.setVisibility(View.INVISIBLE);
@@ -209,7 +211,25 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         header.findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
 
         TextView lblMail = header.findViewById(R.id.lblMail);
+
+
         lblMail.setText(account.getEmail());
+
+        UserDbHelper newUserDb = new UserDbHelper(getBaseContext());
+
+        if (newUserDb.isUserInDB(account.getEmail())){ // si ce n'est pas sa 1re co TODO: erreur on n'arrive jamais dans ce cas
+            android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(AccueilActivity.this).create();
+            alertDialog.setTitle("Trustbet");
+            alertDialog.setMessage("Bienvenue");
+            alertDialog.show();
+        }
+        else {
+            android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(AccueilActivity.this).create();
+            alertDialog.setTitle("TrustBet");
+            alertDialog.setMessage("C'est votre première connexion, 20euros vous ont été crédité");
+            alertDialog.show();
+            newUserDb.insertUser(account.getEmail());
+        }
         lblMail.setVisibility(View.VISIBLE);
 
         TextView lblNom = header.findViewById(R.id.lblNom);
@@ -223,6 +243,8 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
         final ImageView pic = header.findViewById(R.id.imageAccount);
         pic.setImageURI(account.getPhotoUrl());
         pic.setVisibility(View.VISIBLE);
+
+        //mettre à jour revenus
 
 
 
@@ -246,7 +268,9 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 account.getGivenName(),
                 account.getPhotoUrl()
         );
-        mainUser.giveFreeMoney();
+//        mainUser.giveFreeMoney();
+        mainUser.setRevenus((double) newUserDb.getFunds(mainUser.getEmail())); // à corriger
+
 
 
         initAllHeaderDetails();

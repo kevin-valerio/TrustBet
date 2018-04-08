@@ -37,9 +37,9 @@ public class User {
          return revenus;
     }
 
-    public void giveFreeMoney(){
-        revenus += 10.50;
-    }
+//    public void giveFreeMoney(){
+//        revenus += 10.50;
+//    }
 
     public ArrayList<Pari> getParis(){
         PariDbHelper pariDbHelper = new PariDbHelper(context);
@@ -60,5 +60,7 @@ public class User {
         this.id = id;
     }
 
-
+    public void setRevenus(Double revenus) {
+        this.revenus = revenus;
+    }
 }
