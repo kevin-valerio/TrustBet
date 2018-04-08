@@ -269,7 +269,7 @@ public class AccueilActivity extends AppCompatActivity implements NavigationView
                 account.getPhotoUrl()
         );
 //        mainUser.giveFreeMoney();
-        mainUser.setRevenus((double) newUserDb.getFunds(mainUser.getEmail()));
+        mainUser.setRevenus((double) newUserDb.getFunds(mainUser.getEmail())); // à corriger
 
 
 
